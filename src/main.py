@@ -7,10 +7,10 @@ import sys
 
 def main():
     basepath = "/"
-    if len(sys.agrv) > 1:
-        basepath = sys.agrv[1]
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
     static_to_public()
-    generate_pages_recursive("content","template.html","public",basepath)
+    generate_pages_recursive("content","template.html","docs",basepath)
 
 def copy_recursive(src_path, dst_path):
     for item in os.listdir(src_path):
@@ -78,7 +78,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path,base
             if os.path.isdir(src_item):
                 if not os.path.exists(dst_item):
                     os.mkdir(dst_item)
-            generate_pages_recursive(src_item,template_path,dst_item)
+            generate_pages_recursive(src_item,template_path,dst_item,basepath)
 
 
     
