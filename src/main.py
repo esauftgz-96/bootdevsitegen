@@ -30,11 +30,11 @@ def copy_recursive(src_path, dst_path):
 
 def static_to_public():
     # Initialize public directory
-    if os.path.exists("public"):
-        shutil.rmtree("public")
-    os.mkdir("public")
+    if os.path.exists("doc"):
+        shutil.rmtree("doc")
+    os.mkdir("doc")
     # Start recursive copy
-    copy_recursive("static", "public")
+    copy_recursive("static", "doc")
 
 # def generate_page(from_path, template_path, dest_path):
 #     print (f"Generating page from {from_path} to {dest_path} using {template_path}.")
